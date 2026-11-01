@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="A practical reference to 41 backend engineering and system design concepts, from rate limiting and caching to distributed locks and memory leaks." />
+  <title>Engineering Knowledge | Clites</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Engineering Knowledge | Clites" />
+  <meta property="og:site_name" content="Clites" />
+  <meta property="og:description" content="Plain-language explanations of 41 backend engineering and system design concepts." />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/clites-leaf.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="engineering.css" />
+  <link rel="stylesheet" href="inquiry-form.css" />
+  <link rel="stylesheet" href="legal-footer.css" />
+</head>
+<body>
+  <a class="eng-skip" href="#concepts">Skip to concepts</a>
+
+  <div class="nav-wrap">
+    <nav class="pill-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Clites Home">
+        <img class="header-logo" src="img/clites-logo-white.png" alt="Clites" />
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="service.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="engineering.html" class="active" aria-current="page">Engineering</a>
+        <a href="#contact">Pricing</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="hire-button" href="index.html#contact" data-inquiry-open aria-haspopup="dialog">Hire Us</a>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="service.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="engineering.html" class="active" aria-current="page">Engineering</a>
+      <a href="#contact">Pricing</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="eng-hero" aria-labelledby="eng-title">
+      <div class="eng-wrap">
+        <p class="eng-eyebrow">Engineering knowledge</p>
+        <h1 id="eng-title">Backend systems, <br /><em>made clear.</em></h1>
+        <p class="eng-lede">A practical reference to the ideas that keep APIs, data, and distributed systems reliable. Search the library, filter by category, or open any concept for a plain-language explanation.</p>
+        <div class="eng-hero__actions">
+          <a class="eng-button eng-button--primary" href="#concepts">Browse <span data-eng-total>41</span> concepts <span aria-hidden="true">&darr;</span></a>
+          <span class="eng-hero__note">Beginner to advanced &middot; No account required</span>
+        </div>
+        <ul class="eng-stats" aria-label="Library summary">
+          <li><strong data-eng-total>41</strong><span>concepts</span></li>
+          <li><strong data-eng-categories>7</strong><span>categories</span></li>
+          <li><strong data-eng-levels>3</strong><span>difficulty levels</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="eng-library" id="concepts" aria-labelledby="library-title">
+      <div class="eng-wrap">
+        <div class="eng-section-head">
+          <div>
+            <p class="eng-eyebrow">The library</p>
+            <h2 id="library-title">Find the concept you need.</h2>
+          </div>
+          <p class="eng-section-head__copy">Short explanations, the reason each idea matters, and a concrete example. Use the search or category filters to narrow the list.</p>
+        </div>
+
+        <div class="eng-toolbar">
+          <div class="eng-search">
+            <label for="concept-search">Search concepts</label>
+            <div class="eng-search__field">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5"></circle>
+                <path d="m16 16 4.2 4.2"></path>
+              </svg>
+              <input id="concept-search" type="search" placeholder="Search by concept name" autocomplete="off" aria-controls="concept-grid" aria-describedby="concept-count" />
+            </div>
+          </div>
+          <div class="eng-filter-wrap">
+            <span class="eng-filter-label" id="filter-label">Filter by category</span>
+            <div class="eng-filters" id="concept-filters" role="group" aria-labelledby="filter-label"></div>
+          </div>
+        </div>
+
+        <div class="eng-results">
+          <p class="eng-count" id="concept-count" aria-live="polite">41 concepts</p>
+          <p class="eng-hint" id="concept-hint">Select a card to read the full explanation.</p>
+        </div>
+
+        <div class="eng-grid" id="concept-grid" aria-label="Engineering concepts"></div>
+
+        <div class="eng-empty" id="concept-empty" hidden>
+          <p class="eng-empty__title">No concepts found.</p>
+          <p>Try a different search or reset the category filter.</p>
+          <button class="eng-button eng-button--secondary" id="reset-filters" type="button">Reset filters</button>
+        </div>
+
+        <noscript>
+          <p class="eng-noscript">Enable JavaScript to search the library and open concept details.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="eng-cta" aria-labelledby="eng-cta-title">
+      <div class="eng-wrap eng-cta__inner">
+        <div>
+          <p class="eng-eyebrow">From concept to system</p>
+          <h2 id="eng-cta-title">Need help applying these ideas?</h2>
+          <p>Bring us the constraint you are working with. We will help you choose a sensible approach, not the most complicated one.</p>
+        </div>
+        <a class="eng-button eng-button--primary" href="index.html#contact" data-inquiry-open aria-haspopup="dialog">Start a project <span aria-hidden="true">&nearr;</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="eng-footer">
+    <div class="eng-wrap eng-footer__inner">
+      <div class="eng-footer__brand">
+        <a href="index.html" aria-label="Clites Home">
+          <img src="img/clites-logo-black.png" alt="Clites" />
+        </a>
+        <p>Websites and digital experiences for growing brands.</p>
+      </div>
+      <nav class="eng-footer__nav" aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <a href="index.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="engineering.html" aria-current="page">Engineering</a>
+      </nav>
+      <div class="eng-footer__contact" id="contact">
+        <h2>Contact</h2>
+        <a href="mailto:zyvenza.solutions.in@gmail.com">zyvenza.solutions.in@gmail.com</a>
+        <a href="tel:+917339598683">+91 7339598683</a>
+        <a href="https://wa.me/917339598683" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="eng-wrap">
+      <div class="site-legal">
+        <nav class="site-legal__links" aria-label="Legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <p class="site-legal__copyright">&copy; <span data-current-year>2026</span> Clites. All rights reserved.</p>
+        <p class="site-legal__notice">All original content, branding, and materials owned by Clites are protected by applicable intellectual property laws. Unauthorized copying, reproduction, or distribution is prohibited, except as permitted by law or with appropriate permission.</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="eng-dialog" id="concept-dialog" aria-labelledby="concept-dialog-title" aria-describedby="concept-dialog-summary" aria-modal="true">
+    <div class="eng-dialog__inner">
+      <div class="eng-dialog__top">
+        <p class="eng-dialog__eyebrow" id="concept-dialog-category"></p>
+        <button class="eng-dialog__close" id="concept-dialog-close" type="button" aria-label="Close concept details">Close <span aria-hidden="true">&times;</span></button>
+      </div>
+      <h2 id="concept-dialog-title"></h2>
+      <p class="eng-dialog__summary" id="concept-dialog-summary"></p>
+      <dl class="eng-dialog__facts">
+        <div>
+          <dt>Why it matters</dt>
+          <dd id="concept-dialog-why"></dd>
+        </div>
+        <div>
+          <dt>Practical example</dt>
+          <dd id="concept-dialog-example"></dd>
+        </div>
+        <div>
+          <dt>Difficulty</dt>
+          <dd id="concept-dialog-difficulty"></dd>
+        </div>
+      </dl>
+      <a class="eng-dialog__back" id="concept-dialog-back" href="#concepts">&larr; Back to all concepts</a>
+    </div>
+  </dialog>
+
+  <script src="js/site-footer.js"></script>
+  <script src="engineering-data.js"></script>
+  <script src="engineering.js"></script>
+  <script type="module" src="js/project-inquiry.js"></script>
+</body>
+</html>

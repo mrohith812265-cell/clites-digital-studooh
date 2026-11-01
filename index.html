@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clites builds modern, responsive websites and digital experiences for businesses." />
+  <title>Clites | Web Development Agency</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clites | Web Development Agency" />
+  <meta property="og:site_name" content="Clites" />
+  <meta property="og:description" content="Clites builds modern, responsive websites and digital experiences for businesses." />
+  <!-- <link rel="icon" type="image/png" href="img/clites-leaf.png" />
+  <link rel="shortcut icon" type="image/png" href="img/clites-leaf.png" /> -->
+   <link href="src/style.css" rel="stylesheet">
+   <link rel="icon" type="image/png" sizes="32x32" href="img/clites-leaf.png">
+
+
+  <!-- Enables the scroll-reveal styles only when JS runs and the visitor allows motion.
+       (If JS is off, or "reduce motion" is on, everything simply shows normally.) -->
+    
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- =====================================================================
+       SECTION 1 — HERO
+       Fixed pill navbar + hero content.
+       ===================================================================== -->
+    <link rel="stylesheet" href="clites_home.css" />
+
+  <!-- =====================================================================
+       SECTION 2 — HOW WE WORK
+       Black stacked-card section (scoped under .hww so it never clashes
+       with the hero's styles above).
+       ===================================================================== -->
+  
+  <!-- =====================================================================
+       SECTION — PORTFOLIO SHOWCASE
+       Auto-scrolling marquee rows of work images.
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       SECTION — WHAT WE DO
+       Scoped under .wwd so it never clashes with the hero / other sections.
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       SECTION — ABOUT US
+       Scoped under .abt so it never clashes with the hero / other sections.
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       SECTION — CLIENT REVIEWS
+       Scoped under .reviews so it never clashes with the other sections.
+       Colors/fonts/spacing pull from the site's own tokens (--accent,
+       --ink, --muted, Inter/Playfair Display) for a consistent look.
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       SECTION — FAQ + CTA + FOOTER
+       Everything is scoped under .sh-faq / .sh-cta / .sh-footer so it never
+       clashes with the sections above. Left/right edges match the header pill
+       (max-width 1180px + the same clamp(16px, 4vw, 48px) side padding).
+       Text animation uses the site's own .rv / .rv-split / .rv-stagger classes.
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       GLOBAL — SCROLL-REVEAL TEXT ANIMATION + SMOOTH SCROLLING
+       ===================================================================== -->
+  <link rel="stylesheet" href="inquiry-form.css" />
+  <link rel="stylesheet" href="legal-footer.css" />
+</head>
+<body>
+
+  <!-- ============ FIXED HEADER (shared by both sections) ============ -->
+  <div class="nav-wrap">
+      <nav class="pill-nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Clites Home">
+          <img class="header-logo" src="img/clites-logo-white.png" alt="Clites" />
+        </a>
+        <!-- <a class="brand" href="#top">
+          <span class="brand-mark">
+            <svg width="26" height="26" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M8 6h24l-9.5 11.2H32L14 34l4.6-12.4H8l7.4-8.2H8V6z" fill="#367236"/>
+              <path d="M8 6h24l-9.5 11.2H8V6z" fill="#3b7d3b"/>
+            </svg>
+          </span>
+          <span class="brand-text text-black">Clites</span>
+          
+
+        </a> -->
+
+        <div class="nav-links">
+          <a href="#top" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="service.html">Services</a>
+          <a href="portfolio.html" target="_blank">Portfolio</a>
+          <a href="engineering.html">Engineering</a>
+          <a href="#contact">Pricing</a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <a class="hire-button" href="#contact" data-inquiry-open aria-haspopup="dialog">Hire Us</a>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="service.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="#contact">Pricing</a>
+      </div>
+    </div>
+
+  <!-- ============ HERO ============ -->
+  <main class="hero-card" aria-label="Clites hero section">
+
+    <div class="bg-scene" aria-hidden="true">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="glassBody" x1="20%" y1="10%" x2="85%" y2="95%">
+            <stop offset="0%"  stop-color="#ffffff" stop-opacity=".62"/>
+            <stop offset="45%" stop-color="#eef1fa" stop-opacity=".3"/>
+            <stop offset="100%" stop-color="#dfe3f0" stop-opacity=".14"/>
+          </linearGradient>
+
+          <linearGradient id="glassBodyBlue" x1="15%" y1="5%" x2="90%" y2="100%">
+            <stop offset="0%"  stop-color="#ffffff" stop-opacity=".62"/>
+            <stop offset="50%" stop-color="#f5f6f9" stop-opacity=".28"/>
+            <stop offset="100%" stop-color="#eaebf1" stop-opacity=".11"/>
+          </linearGradient>
+
+          <radialGradient id="glassHighlight" cx="30%" cy="24%" r="55%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".78"/>
+            <stop offset="45%" stop-color="#ffffff" stop-opacity=".28"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+
+          <linearGradient id="rimLight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".8"/>
+            <stop offset="45%" stop-color="#ffffff" stop-opacity=".18"/>
+            <stop offset="70%" stop-color="#ffffff" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity=".08"/>
+          </linearGradient>
+
+          <filter id="glassBlurSm" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="0.6"/>
+          </filter>
+
+          <filter id="dropSoft" x="-70%" y="-70%" width="240%" height="240%">
+            <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#8d90a2" flood-opacity=".16"/>
+          </filter>
+
+          <filter id="dropSofter" x="-70%" y="-70%" width="240%" height="240%">
+            <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#8d90a2" flood-opacity=".11"/>
+          </filter>
+
+          <filter id="feather" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="14"/>
+          </filter>
+
+          <clipPath id="clipCircleBig"><circle cx="720" cy="602" r="230"/></clipPath>
+          <clipPath id="clipCircleMd"><circle cx="1060" cy="650" r="112"/></clipPath>
+          <clipPath id="clipCircleSm"><circle cx="380" cy="650" r="112"/></clipPath>
+        </defs>
+
+        <!-- ambient glow so glass has something to reflect -->
+        <ellipse cx="740" cy="560" rx="560" ry="260" fill="#ffffff" opacity=".55" filter="url(#feather)"/>
+
+        <!-- large glass disc, centered UNDER the headline/body copy -->
+        <g class="glass-a" filter="url(#dropSoft)">
+          <circle cx="720" cy="602" r="230" fill="url(#glassBody)"/>
+          <g clip-path="url(#clipCircleBig)">
+            <ellipse cx="620" cy="470" rx="180" ry="110" fill="url(#glassHighlight)"/>
+            <ellipse cx="860" cy="740" rx="140" ry="70" fill="#b5deb5" opacity=".3"/>
+          </g>
+          <circle cx="720" cy="602" r="230" fill="none" stroke="url(#rimLight)" stroke-width="1.8"/>
+        </g>
+
+        <!-- glass disc, right of text (matches left in size) -->
+        <g class="glass-b" filter="url(#dropSofter)">
+          <circle cx="1060" cy="650" r="112" fill="url(#glassBodyBlue)"/>
+          <g clip-path="url(#clipCircleMd)">
+            <ellipse cx="1015" cy="605" rx="86" ry="52" fill="url(#glassHighlight)"/>
+          </g>
+          <circle cx="1060" cy="650" r="112" fill="none" stroke="url(#rimLight)" stroke-width="1.6"/>
+        </g>
+
+        <!-- glass disc, left of text (matches right in size) -->
+        <g class="glass-c" filter="url(#dropSofter)">
+          <circle cx="380" cy="650" r="112" fill="url(#glassBody)"/>
+          <g clip-path="url(#clipCircleSm)">
+            <ellipse cx="335" cy="605" rx="86" ry="52" fill="url(#glassHighlight)"/>
+          </g>
+          <circle cx="380" cy="650" r="112" fill="none" stroke="url(#rimLight)" stroke-width="1.5"/>
+        </g>
+
+        <!-- fine ring orbiting the big glass disc for extra dimension -->
+        <g class="glass-a">
+          <circle cx="720" cy="602" r="272" fill="none" stroke="#a7d7a7" stroke-opacity=".4" stroke-width="1"/>
+        </g>
+</svg>
+    </div>
+
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <span class="corner-fold" aria-hidden="true"></span>
+
+    <section class="hero-content" id="top">
+      <p class="eyebrow rv" style="--d:.05s;padding:6px 20px">
+        Web Development &amp; Digital Solutions
+      </p>
+      <h1 class="rv-split" style="--d:.15s">Building Digital <br />Experiences That Move <br />Businesses <span class="accent">Forward.</span></h1>
+      <p class="hero-copy rv" style="--d:.55s">
+        We design and develop modern, responsive websites that help businesses
+        strengthen their online presence and grow with confidence.
+      </p>
+      <a class="primary-button rv" style="--d:.7s" href="#contact" data-inquiry-open aria-haspopup="dialog">
+        Start a Project
+        <span class="button-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <a class="secondary-button rv" style="--d:.8s" href="#services">Explore Our Services</a>
+    </section>
+  </main>
+
+
+
+  
+
+
+  <!-- ============ HOW WE WORK ============ -->
+  <section class="hww" id="how-we-work" aria-labelledby="hww-title">
+
+  <header class="hww__head">
+    <h2 class="hww__title rv-split" id="hww-title">How We <em>Work</em></h2>
+    <p class="hww__sub rv" style="--d:.2s">A transparent process that transforms ideas into successful digital experiences.</p>
+  </header>
+
+  <div class="hww__stack">
+
+    <!-- 01 — Green -->
+    <article class="hww__card hww__card--blue">
+      <div class="hww__content">
+        <span class="hww__num rv" aria-hidden="true">1</span>
+        <h3 class="hww__h3 rv-split" style="--d:.1s">Client Inquiry <em>&amp; Discovery</em></h3>
+        <p class="hww__text rv" style="--d:.3s">It starts with a private conversation about your vision, your audience, and what success looks like for your business, so every decision that follows is built around you.</p>
+        <ul class="hww__tags rv-stagger" style="--d:.4s">
+          <li>Private Consultation</li>
+          <li>Goal Setting</li>
+          <li>Audience Insight</li>
+        </ul>
+        <div class="hww__foot rv" style="--d:.6s">
+          <span class="hww__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
+          <span class="hww__promise">Complimentary 30-minute strategy call</span>
+        </div>
+      </div>
+      <div class="hww__media">
+        <img src="img/process-discovery.jpg" alt="Team collaborating around a table during a discovery meeting" width="564" height="500" loading="lazy" decoding="async" />
+      </div>
+    </article>
+
+    <!-- 02 — Emerald -->
+    <article class="hww__card hww__card--emerald">
+      <div class="hww__content">
+        <span class="hww__num rv" aria-hidden="true">2</span>
+        <h3 class="hww__h3 rv-split" style="--d:.1s">Research <em>&amp; Strategy</em></h3>
+        <p class="hww__text rv" style="--d:.3s">Before anything is designed, we study your market, your competitors, and your customers, then turn those insights into a clear, considered direction for your brand.</p>
+        <ul class="hww__tags rv-stagger" style="--d:.4s">
+          <li>Competitor Analysis</li>
+          <li>Market Trends</li>
+          <li>Opportunity Map</li>
+        </ul>
+        <div class="hww__foot rv" style="--d:.6s">
+          <span class="hww__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
+          <span class="hww__promise">A strategy grounded in real data</span>
+        </div>
+      </div>
+      <div class="hww__media">
+        <img src="img/process-strategy.jpg" alt="Hands sketching a strategy map on a whiteboard" width="564" height="376" loading="lazy" decoding="async" />
+      </div>
+    </article>
+
+    <!-- 03 — Citron -->
+    <article class="hww__card hww__card--citron">
+      <div class="hww__content">
+        <span class="hww__num rv" aria-hidden="true">3</span>
+        <h3 class="hww__h3 rv-split" style="--d:.1s">Project <em>Planning</em></h3>
+        <p class="hww__text rv" style="--d:.3s">You receive a clear roadmap with defined milestones, timelines, and deliverables, so you always know what is happening, when it happens, and what comes next.</p>
+        <ul class="hww__tags rv-stagger" style="--d:.4s">
+          <li>Roadmap</li>
+          <li>Timeline</li>
+          <li>Milestones</li>
+        </ul>
+        <div class="hww__foot rv" style="--d:.6s">
+          <span class="hww__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
+          <span class="hww__promise">Clear deliverables, agreed deadlines</span>
+        </div>
+      </div>
+      <div class="hww__media">
+        <img src="img/process-planning.jpg" alt="Planning session with notes and laptops on a desk" width="564" height="394" loading="lazy" decoding="async" />
+      </div>
+    </article>
+
+    <!-- 04 — Ember -->
+    <article class="hww__card hww__card--ember">
+      <div class="hww__content">
+        <span class="hww__num rv" aria-hidden="true">4</span>
+        <h3 class="hww__h3 rv-split" style="--d:.1s">Final <em>Delivery</em></h3>
+        <p class="hww__text rv" style="--d:.3s">Your project is refined, tested, and handed over polished and launch-ready, with every file and asset delivered and our team beside you after go-live.</p>
+        <ul class="hww__tags rv-stagger" style="--d:.4s">
+          <li>Quality Review</li>
+          <li>Complete Handover</li>
+          <li>Post-Launch Support</li>
+        </ul>
+        <div class="hww__foot rv" style="--d:.6s">
+          <span class="hww__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
+          <span class="hww__promise">Delivered on time, supported after launch</span>
+        </div>
+      </div>
+      <div class="hww__media">
+        <img src="img/process-delivery.jpg" alt="Laptop showing a ready-to-launch project with final delivery checklist and post go-live support" width="1128" height="635" loading="lazy" decoding="async" />
+      </div>
+    </article>
+
+  </div>
+</section>
+
+  
+
+
+  <!-- =====================================================================
+       SECTION — WHAT WE DO
+       ===================================================================== -->
+  <section class="wwd" id="services" aria-labelledby="wwd-title">
+    <div class="wwd__wrap">
+
+      <span class="wwd__eyebrow rv">What We Do</span>
+      <h2 class="wwd__title rv-split" id="wwd-title" style="--d:.1s">Two disciplines. <span class="wwd__muted">No filler&nbsp;—</span><br><span class="wwd__nb"><span class="wwd__script">done properly</span>.</span></h2>
+
+      <div class="wwd__grid">
+
+        <article class="wwd__card rv" style="--d:.1s; --y:18px">
+          <div class="wwd__body">
+            <div class="wwd__icon rv" style="--d:.25s" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="wwd__h3 rv-split" style="--d:.3s">Web Development</h3>
+            <p class="wwd__text rv" style="--d:.45s">Modern, scalable websites and web apps built for performance, conversion and growth.</p>
+          </div>
+          <div class="wwd__foot">
+            <ul class="wwd__list rv-stagger" style="--d:.55s">
+              <li>Landing Pages</li>
+              <li>Startup Websites</li>
+              <li>E-Commerce</li>
+              <li>Web Applications</li>
+              <li>WordPress</li>
+              <li>MERN Stack</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="wwd__card wwd__card--b rv" style="--d:.22s; --y:18px">
+          <div class="wwd__body">
+            <div class="wwd__icon rv" style="--d:.37s" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h3 class="wwd__h3 rv-split" style="--d:.42s">Graphic Design</h3>
+            <p class="wwd__text rv" style="--d:.57s">Creative visual assets that build a strong brand identity and professional communication.</p>
+          </div>
+          <div class="wwd__foot">
+            <ul class="wwd__list rv-stagger" style="--d:.67s">
+              <li>Logo &amp; Brand Identity</li>
+              <li>Social Media Design</li>
+              <li>Print Design</li>
+              <li>Packaging Design</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION — ABOUT US
+       ===================================================================== -->
+  <section class="abt" id="about" aria-labelledby="abt-title">
+    <div class="abt__inner">
+      <p class="abt__eyebrow rv">About Clites</p>
+
+      <div class="abt__intro">
+        <h2 class="abt__headline rv-split" id="abt-title" style="--d:.1s">
+          We build <span class="abt__brand">digital</span><br />
+          experiences that <span class="abt__accent">stand out.</span>
+        </h2>
+
+        <div>
+          <p class="abt__desc rv" style="--d:.4s">
+            Clites is a growing web development agency focused on creating
+            modern, responsive and professional websites for businesses. We
+            combine clear strategy, thoughtful design and reliable development
+            to build websites that work as well as they look.
+          </p>
+          <span class="abt__note rv" style="--d:.55s">Strategy / Design / Digital Experiences</span>
+        </div>
+      </div>
+
+      <div class="abt__stats rv-stagger" style="--d:.1s" aria-label="Our process">
+        <div class="abt__stat">
+          <span class="abt__number" data-target="1" data-pad="2">01</span>
+          <span class="abt__label">Discovery</span>
+        </div>
+        <div class="abt__stat">
+          <span class="abt__number" data-target="2" data-pad="2">02</span>
+          <span class="abt__label">Design</span>
+        </div>
+        <div class="abt__stat">
+          <span class="abt__number" data-target="3" data-pad="2">03</span>
+          <span class="abt__label">Development</span>
+        </div>
+        <div class="abt__stat">
+          <span class="abt__number" data-target="4" data-pad="2">04</span>
+          <span class="abt__label">Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About: count-up numbers (start counting when the stats scroll into view) -->
+  
+
+
+
+  
+
+  <!-- =====================================================================
+       SECTION — FOUNDERS  (sits between Client Reviews and FAQ)
+       Everything is scoped under .shf so it never clashes with other sections.
+       ===================================================================== -->
+  <section class="shf" id="founders" aria-labelledby="founders-title">
+    <div class="shf__inner">
+
+      <div class="shf__top">
+        <div class="rv" style="--d:.05s">
+          <h2 class="shf__title" id="founders-title">Building <em>the future</em>, together.</h2>
+        </div>
+
+        <div class="shf__intro rv" style="--d:.2s">
+          <p>
+            Meet the person behind Clites — building thoughtful websites
+            and digital experiences for businesses.
+          </p>
+
+          <p class="shf__tag">
+            <strong>Founder</strong> · Rohith
+          </p>
+        </div>
+      </div>
+
+      <div class="shf__people rv" id="founder-cards" style="--d:.3s">
+        <img src="img/saznina nazrin.jpeg" alt="Rohith, Founder of Clites" title="Rohith — Founder, Clites" class="shf__photo" width="1680" height="936" loading="eager" fetchpriority="high" decoding="async" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION — FAQ
+       ===================================================================== -->
+  <section class="sh-faq" id="faq" aria-labelledby="faq-title">
+    <div class="sh-faq__inner">
+
+      <div class="sh-faq__head">
+        <h2 class="sh-faq__title rv-split" id="faq-title" style="--d:.1s"><span class="sh-faq__title-a">Common</span> <span class="sh-faq__title-b">questions</span></h2>
+      </div>
+
+      <ul class="sh-faq__list rv-stagger" id="shFaqList" style="--d:.15s">
+
+        <li class="sh-faq__item">
+          <button class="sh-faq__q" type="button" id="shFaqQ1" aria-expanded="false" aria-controls="shFaqA1">
+            <span class="sh-faq__num">1</span>
+            <span class="sh-faq__q-text">What services do you offer?</span>
+            <span class="sh-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="sh-faq__a" id="shFaqA1" role="region" aria-labelledby="shFaqQ1">
+            <div class="sh-faq__a-inner">
+              <p>We work across web development, graphic design, brand identity, packaging, and social media design.</p>
+              <p>Most clients come to us for one of two things: a website built to convert, or a full brand system — logo, identity, and the assets that go with it.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sh-faq__item is-open">
+          <button class="sh-faq__q" type="button" id="shFaqQ2" aria-expanded="true" aria-controls="shFaqA2">
+            <span class="sh-faq__num">2</span>
+            <span class="sh-faq__q-text">How long does a project take?</span>
+            <span class="sh-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="sh-faq__a" id="shFaqA2" role="region" aria-labelledby="shFaqQ2">
+            <div class="sh-faq__a-inner">
+              <p>Timelines depend on scope, but most landing pages and brand identities are delivered in 2–3 weeks.</p>
+              <p>Larger builds — e-commerce sites and web applications — usually take 4–6 weeks.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sh-faq__item">
+          <button class="sh-faq__q" type="button" id="shFaqQ3" aria-expanded="false" aria-controls="shFaqA3">
+            <span class="sh-faq__num">3</span>
+            <span class="sh-faq__q-text">Do I need technical knowledge to work with you?</span>
+            <span class="sh-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="sh-faq__a" id="shFaqA3" role="region" aria-labelledby="shFaqQ3">
+            <div class="sh-faq__a-inner">
+              <p>No. We handle strategy, design, and development end to end, and explain every decision in plain language.</p>
+              <p>You'll get a clear roadmap and regular updates, so you always know where the project stands.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sh-faq__item">
+          <button class="sh-faq__q" type="button" id="shFaqQ4" aria-expanded="false" aria-controls="shFaqA4">
+            <span class="sh-faq__num">4</span>
+            <span class="sh-faq__q-text">Is my project data secure?</span>
+            <span class="sh-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="sh-faq__a" id="shFaqA4" role="region" aria-labelledby="shFaqQ4">
+            <div class="sh-faq__a-inner">
+              <p>Yes. All project files, credentials, and communication are kept confidential and shared only with your assigned team.</p>
+              <p>We're happy to sign an NDA before we start, if your business requires one.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sh-faq__item">
+          <button class="sh-faq__q" type="button" id="shFaqQ5" aria-expanded="false" aria-controls="shFaqA5">
+            <span class="sh-faq__num">5</span>
+            <span class="sh-faq__q-text">What kind of results can I expect?</span>
+            <span class="sh-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="sh-faq__a" id="shFaqA5" role="region" aria-labelledby="shFaqQ5">
+            <div class="sh-faq__a-inner">
+              <p>A brand and site that actually looks like it belongs to your business, built to hold up as you grow.</p>
+              <p>We focus on the things that matter after launch: fast load times, clear structure, and a smooth experience for the people who visit your site.</p>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ accordion (one open at a time) -->
+  
+
+  <!-- =====================================================================
+       SECTION — CTA  (the header's "Hire Us" button scrolls here)
+       ===================================================================== -->
+  <div class="sh-cta-wrap" id="contact">
+    <section class="sh-cta" aria-labelledby="cta-title">
+      <div class="sh-cta__content">
+        <h2 class="sh-cta__title rv-split" id="cta-title" style="--d:.1s">Ready to build your <em>next project</em> with Clites?</h2>
+        <div class="sh-cta__buttons rv" style="--d:.4s">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zyvenza.solutions.in@gmail.com&su=Project%20Inquiry&body=Hi%20Clites%20team%2C" class="sh-cta__primary" data-inquiry-open aria-haspopup="dialog">Start a Project</a>
+          <a href="https://wa.me/917339598683?text=Hi%20Clites%20team%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="sh-cta__secondary">Talk to us →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =====================================================================
+       SECTION — FOOTER
+       ===================================================================== -->
+  <footer class="sh-footer">
+    <div class="sh-footer__inner rv-stagger" style="--d:.05s">
+      <div class="sh-footer__brand">
+        <img src="img/clites-logo-white.png" alt="Clites logo" loading="lazy" />
+        <p>Websites and digital experiences for growing brands.</p>
+        <div class="sh-footer__socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Behance">be</a>
+        </div>
+      </div>
+
+      <div class="sh-footer__links">
+        <h3 class="sh-footer__title">Quick links</h3>
+        <ul class="sh-footer__list">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="engineering.html">Engineering</a></li>
+          <li><a href="#contact">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="sh-footer__services">
+        <h3 class="sh-footer__title">Services</h3>
+        <ul class="sh-footer__list">
+          <li><a href="#services">Brand identity</a></li>
+          <li><a href="#services">Web development</a></li>
+          <li><a href="#services">Social media design</a></li>
+        </ul>
+      </div>
+
+      <div class="sh-footer__contact">
+        <h3 class="sh-footer__title">Contact</h3>
+        <p><a href="mailto:zyvenza.solutions.in@gmail.com">zyvenza.solutions.in@gmail.com</a></p>
+        <p><a href="tel:+917339598683">+91 7339598683</a></p>
+        <p><a href="https://wa.me/917339598683" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p>Tamil Nadu, India</p>
+        <a class="sh-footer__work" href="https://mail.google.com/mail/?view=cm&fs=1&to=zyvenza.solutions.in@gmail.com&su=Project%20Inquiry&body=Hi%20Clites%20team%2C" data-inquiry-open aria-haspopup="dialog">Let's work together</a>
+      </div>
+    </div>
+
+    <div class="sh-footer__legal-wrap">
+      <div class="site-legal site-legal--dark">
+        <nav class="site-legal__links" aria-label="Legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <p class="site-legal__copyright">&copy; <span data-current-year>2026</span> Clites. All rights reserved.</p>
+        <p class="site-legal__notice">All original content, branding, and materials owned by Clites are protected by applicable intellectual property laws. Unauthorized copying, reproduction, or distribution is prohibited, except as permitted by law or with appropriate permission.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       SMOOTH SCROLLING — Lenis v1.3.26 (MIT licence, https://github.com/darkroomengineering/lenis)
+       Inlined so the page works offline. Touch devices keep their native scrolling.
+       ===================================================================== -->
+  
+
+  
+
+  <!-- =====================================================================
+       SCROLL-REVEAL TEXT ANIMATION
+       .rv         → block fades + rises when it scrolls into view
+       .rv-split   → heading is split into words that rise one after another
+       .rv-stagger → children (tags / list items) reveal one by one
+       ===================================================================== -->
+  
+<script src="clites_home.js"></script>
+<script src="protect-lite.js"></script>
+<script src="js/site-footer.js"></script>
+<script type="module" src="js/project-inquiry.js"></script>
+</body>
+</html>

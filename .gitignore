@@ -1,0 +1,20 @@
+# Local environment and generated browser configuration
+.env
+.env.*
+!.env.example
+supabase-config.json
+
+# Dependencies / local tooling
+node_modules/
+supabase/.temp/
+supabase/.branches/
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~

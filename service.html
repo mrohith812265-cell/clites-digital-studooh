@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f1f1f1" />
+  <meta name="description" content="Web development, branding, UI/UX and digital design services from Clites — built for startups, small businesses and growing brands." />
+  <title>Services | Clites</title>
+  <meta property="og:title" content="Services | Clites" />
+  <meta property="og:site_name" content="Clites" />
+  <meta property="og:description" content="Web development, branding and digital design services for growing brands." />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/clites-leaf.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --blue: #3b7d3b;
+      --ink: #080912;
+      --muted: #7a7d86;
+      --surface: #f1f1f1;
+      --card: #ffffff;
+      --line: #dadadd;
+      --violet: #7157ff;
+      --coral: #ff755e;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --card-width: clamp(220px, 25vw, 292px);
+      --card-gap: 12px;
+      --rail-offset: clamp(0px, 12vw, 180px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; }
+
+    .services-section {
+      position: relative;
+      min-height: 100svh;
+      width: 100%;
+      padding: clamp(42px, 8vw, 92px) 0 clamp(32px, 6vw, 70px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 83% 3%, rgba(59, 125, 59, .055), transparent 28%),
+        var(--surface);
+    }
+    .services-section::before {
+      content: "";
+      position: absolute;
+      top: -170px;
+      left: -170px;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .47);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+    .services-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 44px, 1540px);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-right: var(--rail-offset);
+      margin-bottom: clamp(68px, 11vw, 145px);
+    }
+    .section-title {
+      font-size: clamp(48px, 7.4vw, 112px);
+      font-weight: 700;
+      letter-spacing: -.1em;
+      line-height: .78;
+  margin: 40px 0 0 var(--rail-offset);  /* 40px আগে ছিল 0 */
+    }
+    .section-title span {
+      display: block;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: .7em;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -.075em;
+      line-height: .95;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+    .control {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(8, 9, 18, .08);
+      border-radius: 50%;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .78);
+      cursor: pointer;
+      font-size: 21px;
+      line-height: 1;
+      transition: color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .control:last-child {
+      color: var(--card);
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    .control:hover {
+      color: var(--card);
+      background: var(--blue);
+      border-color: var(--blue);
+      box-shadow: 0 10px 23px rgba(59, 125, 59, .2);
+      transform: translateY(-3px);
+    }
+    .control:active { transform: translateY(0) scale(.95); }
+
+    .carousel-viewport {
+      position: relative;
+      width: 100%;
+      margin-left: 0;
+      overflow: visible;
+    }
+    .carousel-mask {
+      overflow: hidden;
+      margin-right: 0;
+      padding: 12px 0 28px var(--rail-offset);
+      user-select: none;
+    }
+    .service-track {
+      display: flex;
+      gap: var(--card-gap);
+      width: max-content;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+    .service-card {
+      position: relative;
+      display: flex;
+      flex: 0 0 var(--card-width);
+      flex-direction: column;
+      justify-content: space-between;
+      height: clamp(210px, 26vw, 268px);
+      padding: 25px 24px 22px;
+      overflow: hidden;
+      border: 1px solid rgba(8, 9, 18, .07);
+      border-radius: 9px;
+      background: var(--card);
+      box-shadow: 0 5px 9px rgba(17, 20, 32, .045), 0 17px 34px rgba(17, 20, 32, .035);
+      transform: translateY(0);
+      transition: box-shadow .5s var(--ease), transform .5s var(--ease), border-color .5s var(--ease);
+    }
+    .service-card:nth-child(3n + 2) {
+      --card-accent: var(--violet);
+      --card-tint: rgba(62, 132, 62, .085);
+    }
+    .service-card:nth-child(3n) {
+      --card-accent: var(--coral);
+      --card-tint: rgba(255, 117, 94, .09);
+    }
+    .service-card:hover,
+    .service-card.is-active {
+      border-color: rgba(8, 9, 18, .12);
+      box-shadow: 0 16px 28px rgba(17, 20, 32, .105), 0 28px 55px rgba(17, 20, 32, .07);
+      transform: translateY(-8px);
+    }
+    .service-copy {
+      position: relative;
+      z-index: 1;
+    }
+    .service-name {
+      max-width: 95%;
+      margin: 0;
+      font-size: clamp(21px, 2.15vw, 29px);
+      font-weight: 400;
+      letter-spacing: -.075em;
+      line-height: .98;
+    }
+    .service-tagline {
+      display: -webkit-box;
+      max-width: 100%;
+      margin: 10px 0 0;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+    .service-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 8px;
+      color: var(--card-accent, var(--blue));
+      background: var(--card-tint, rgba(59, 125, 59, .075));
+      font-size: 19px;
+      line-height: 1;
+      transition: color .35s var(--ease), background .35s var(--ease), transform .35s var(--ease);
+    }
+    .service-card:hover .service-icon,
+    .service-card.is-active .service-icon {
+      color: #fff;
+      background: var(--card-accent, var(--blue));
+      transform: rotate(8deg) scale(1.05);
+    }
+
+    .progress {
+      position: relative;
+      width: calc(100% - var(--rail-offset));
+      height: 3px;
+      margin-top: 18px;
+      margin-left: var(--rail-offset);
+      overflow: hidden;
+      border-radius: 99px;
+      background: var(--line);
+    }
+    .progress-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--blue);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 36px;
+      min-height: 270px;
+      scroll-margin-top: 110px;
+      margin: clamp(40px, 6vw, 76px) var(--rail-offset) 0;
+      padding: clamp(30px, 5vw, 64px);
+      border-radius: 18px;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 18px 45px rgba(59, 125, 59, .2);
+    }
+    .contact-card-content {
+      max-width: 720px;
+    }
+    .contact-card-label {
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, .58);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .contact-card h2 {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 76px);
+      font-weight: 400;
+      letter-spacing: -.075em;
+      line-height: .94;
+    }
+    .contact-card-text {
+      max-width: 470px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .68);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .contact-button {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 18px;
+      min-height: 54px;
+      padding: 0 22px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 999px;
+      color: #fff;
+      background: transparent;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+    }
+    .contact-button span {
+      font-size: 20px;
+      line-height: 1;
+    }
+    .contact-button:hover {
+      color: var(--ink);
+      background: #fff;
+      border-color: #fff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 1100px) {
+      :root {
+        --rail-offset: clamp(0px, 6vw, 72px);
+      }
+      .section-header {
+        margin-bottom: clamp(58px, 9vw, 100px);
+      }
+      .service-card {
+        height: clamp(220px, 30vw, 260px);
+      }
+    }
+    /* Mobile navigation drawer */
+.ts-mob-drawer{
+  display:none;
+  position:fixed;
+  top:74px;
+  left:12px;
+  right:12px;
+  z-index:9999;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  background:rgba(8,9,18,.97);
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+.ts-mob-drawer.open{display:flex;flex-direction:column;gap:4px;}
+.ts-mob-link,.ts-mob-hire{
+  display:block;
+  padding:13px 14px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+.ts-mob-link:hover,.ts-mob-hire:hover{background:rgba(255,255,255,.08);}
+.ts-mob-hire{
+  margin-top:6px;
+  text-align:center;
+  background:#3b7d3b;
+}
+@media (max-width: 760px) {
+  .ts-mob-drawer{top:70px;}
+
+      :root {
+        --card-width: min(69vw, 270px);
+        --rail-offset: 0px;
+      }
+      .services-section { padding-top: 82px; }
+      .services-inner { width: calc(100% - 36px); }
+      .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+        margin-bottom: 56px;
+      }
+      .section-title {
+        margin-left: 0;
+        font-size: clamp(47px, 16vw, 76px);
+      }
+      .controls { gap: 8px; }
+      .controls { align-self: flex-end; }
+      .control { width: 44px; height: 44px; font-size: 18px; }
+      .carousel-viewport { width: 100%; }
+      .carousel-mask { margin-right: 0; padding-left: 0; }
+      .service-card { height: 224px; }
+      .progress {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-right: 0;
+        padding: 30px 24px;
+      }
+      .contact-button { margin-top: 4px; }
+    }
+    @media (max-width: 420px) {
+      .services-inner { width: calc(100% - 28px); }
+      :root { --card-width: min(78vw, 270px); }
+      .service-card {
+        padding: 23px 20px 20px;
+      }
+      .service-tagline { font-size: 11px; }
+      .contact-card {
+        min-height: 300px;
+        border-radius: 14px;
+        padding: 28px 20px;
+      }
+      .contact-card h2 { font-size: clamp(32px, 11vw, 48px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
+    /* ============================================================
+       HEADER — imported from portfolio.html (Clites header)
+    ============================================================ */
+    .ts-header{
+        width:calc(100% - 60px);
+        max-width:1200px;
+        height:64px;
+        left:50%;
+        transform:translateX(-50%);
+        top:16px;
+        position:fixed;
+        z-index:9999;
+        border-radius:100px;
+        background:#000000;
+        border:1px solid rgba(255,255,255,0.16);
+        box-shadow:
+            0 8px 40px rgba(0,0,0,0.40),
+            0 1px 0 rgba(255,255,255,0.14) inset,
+            0 0 0 1px rgba(59, 125, 59,0.08);
+        display:flex;align-items:center;justify-content:space-between;
+        padding:0 28px 0 24px;
+        box-sizing:border-box;overflow:visible;
+    }
+    .ts-logo img{height:44px;width:auto;object-fit:contain;display:block;}
+
+    .ts-navbar ul{
+        display:flex;
+        align-items:center;
+        gap:36px;
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+    .ts-navbar ul li{
+        position:relative;
+        padding-bottom:28px;
+        margin-bottom:-28px;
+    }
+    .ts-navbar ul li > a{
+        text-decoration:none !important;
+        color:rgba(255,255,255,0.75);
+        font-size:14px;
+        font-weight:500;
+        transition:color 0.3s;
+        position:relative;
+        display:inline-block;
+        padding-bottom:6px;
+    }
+    .ts-navbar ul li > a::after{
+        content:'';
+        position:absolute;
+        left:50%;
+        bottom:0;
+        width:0;
+        height:2px;
+        background:linear-gradient(90deg,#3c803c,#7fb77e);
+        transform:translateX(-50%);
+        transition:width 0.35s ease;
+        border-radius:10px;
+        box-shadow:0 0 10px rgba(60, 128, 60,0.6);
+    }
+    .ts-navbar ul li > a:hover{ color:#fff; }
+    .ts-navbar ul li > a:hover::after{ width:100%; }
+
+    .ts-hire-btn{
+        position:relative;overflow:hidden;
+        text-decoration:none !important;color:#fff !important;
+        font-size:13px;font-weight:700;letter-spacing:0.5px;
+        padding:11px 24px;border-radius:100px;
+        background:linear-gradient(135deg,rgba(59, 125, 59,0.90),rgba(47, 101, 47,0.80));
+        backdrop-filter:blur(12px);
+        border:1px solid rgba(59, 125, 59,0.60);
+        transition:all 0.35s ease;white-space:nowrap;
+    }
+    .ts-hire-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.12);transform:skewX(-25deg);transition:left 0.5s;}
+    .ts-hire-btn:hover::before{left:120%;}
+    .ts-hire-btn:hover{transform:translateY(-2px);}
+
+    .ts-mob-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;width:38px;height:38px;gap:5px;border:none;
+        background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);
+        border:1px solid rgba(255,255,255,0.14);border-radius:50px;cursor:pointer;transition:background 0.3s;}
+    .ts-mob-toggle span{display:block;width:18px;height:2px;background:rgba(255,255,255,0.80);border-radius:4px;transition:transform 0.35s ease,opacity 0.3s;}
+    .ts-mob-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .ts-mob-toggle.active span:nth-child(2){opacity:0;}
+    .ts-mob-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ---- PRICING DROPDOWN ---- */
+    .ts-pricing-menu{
+        position:absolute;top:calc(100% - 14px);
+        opacity:0;visibility:hidden;pointer-events:none;
+        transition:opacity 0.28s ease,visibility 0.28s ease,top 0.28s ease;z-index:9998;
+        left:50%;
+        transform:translateX(-50%);
+        background:rgba(2,4,12,0.995);
+        backdrop-filter:blur(60px) saturate(260%);
+        -webkit-backdrop-filter:blur(60px) saturate(260%);
+        border:1px solid rgba(255,255,255,0.18);
+        box-shadow:
+            0 45px 120px rgba(0,0,0,0.92),
+            0 0 0 1px rgba(255,255,255,0.06),
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            inset 0 -1px 0 rgba(0,0,0,0.65);
+        width:300px;border-radius:22px;padding:14px;
+    }
+    .ts-pricing-parent:hover .ts-pricing-menu{top:100%;opacity:1;visibility:visible;pointer-events:all;}
+    .ts-pricing-menu::before{content:'';position:absolute;width:14px;height:14px;background:rgba(2,4,12,0.995);top:-7px;left:50%;transform:translateX(-50%) rotate(45deg);border-left:1px solid rgba(255,255,255,0.14);border-top:1px solid rgba(255,255,255,0.14);}
+    .ts-pricing-menu::after{
+        content:'';
+        position:absolute;
+        inset:0;
+        border-radius:inherit;
+        background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+        pointer-events:none;
+    }
+    .ts-price-btn{
+        width:100%;display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-radius:16px;text-decoration:none !important;
+        background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);margin-bottom:10px;
+        transition:all 0.35s ease;position:relative;overflow:hidden;
+    }
+    .ts-price-btn:last-child{margin-bottom:0;}
+    .ts-price-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.14);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.35);}
+    .ts-price-left{display:flex;align-items:center;gap:10px;}
+    .ts-ptext h4{color:#eef7ee;font-size:14px;font-weight:700;margin:0 0 2px;transition:color 0.3s;}
+    .ts-ptext span{color:#4a5568;font-size:11px;font-weight:500;}
+    .ts-parrow{color:#334155;font-size:17px;transition:transform 0.3s,color 0.3s;}
+    .ts-price-btn:hover .ts-parrow{transform:translateX(4px);color:#5e9e5b;}
+    .ts-picon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;}
+    .ts-pgd{background:linear-gradient(135deg,#3c803c,#2e612e);}
+    .ts-pwd{background:linear-gradient(135deg,#00b894,#00cec9);}
+    .ts-pui{background:linear-gradient(135deg,#7d5fff,#5f27cd);}
+
+    @media(max-width:1100px){.ts-header{padding:0 20px 0 18px;}.ts-navbar ul{gap:24px;}}
+    @media(max-width:880px){
+        .ts-header{width:calc(100% - 32px);height:58px;top:12px;padding:0 16px;}
+        .ts-navbar,.ts-hire-btn{display:none;}
+        .ts-mob-toggle{display:flex;}
+    }
+    @media(max-width:380px){
+        .ts-header{padding:0 14px;}
+        .ts-logo img{height:38px;}
+        .ts-hire-btn{display:none;}
+    }
+
+    /* ============================================================
+       FOOTER — imported from portfolio.html
+    ============================================================ */
+    .footer{
+        position:relative;
+        background:#ffffff !important;
+        padding:72px 7% 32px;
+        border-top:1px solid rgba(0,0,0,0.08);
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        box-shadow:none !important;
+    }
+    .footer-container{display:grid;grid-template-columns:1.4fr 0.8fr 0.8fr 1.1fr;gap:60px;}
+    .footer-brand{max-width:400px;}
+    .footer .logo{display:flex;align-items:center;margin-bottom:18px;}
+    .footer-logo-img{filter:brightness(0);}
+    .footer .logo-text{font-size:32px;font-weight:300;color:#000000;}
+    .footer .logo-text span{color:#3b7d3b;}
+    .brand-description{color:#5b5f66;font-size:15px;font-weight:300;line-height:1.7;margin-bottom:24px;}
+    .social-icons{display:flex;align-items:center;gap:16px;}
+    .social-icons a{
+        background:transparent;
+        border:none;
+        display:flex;align-items:center;justify-content:center;
+        text-decoration:none;color:#000000;font-size:15px;
+    }
+    .social-icons a:hover{color:#3b7d3b;}
+    .footer-title{position:relative;color:#000000 !important;font-size:15px;font-weight:500;letter-spacing:normal;text-transform:none;margin-bottom:22px;}
+    .footer-title::before{content:'';position:absolute;left:0;bottom:-11px;width:24px;height:3px;background:#3b7d3b;}
+    .footer-links{display:flex;flex-direction:column;gap:14px;}
+    .footer-links a{color:#5b5f66;text-decoration:none;font-size:15px;font-weight:300;}
+    .footer-links a:hover{color:#3b7d3b;}
+
+    .contact-wrapper{display:flex;flex-direction:column;gap:14px;}
+    .contact-row{display:flex;gap:10px;align-items:center;background:transparent;border:none;padding:0;}
+    .contact-row i{font-size:14px;font-weight:400;color:#3b7d3b;}
+    .contact-row p,.contact-row a{color:#5b5f66;text-decoration:none;font-size:15px;font-weight:300;margin:0;}
+    .contact-row a:hover{color:#3b7d3b;}
+    .footer-cta{display:inline-block;margin-top:22px;padding:12px 24px;border-radius:10px;background:transparent;border:1px solid #000000;color:#000000;text-decoration:none;font-size:14px;font-weight:400;}
+    .footer-cta:hover{background:#3b7d3b;border-color:#3b7d3b;color:#ffffff;}
+    .footer-divider{width:100%;height:1px;background:rgba(0,0,0,0.08);margin:52px 0 24px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .footer-bottom p{color:#8a8f98;font-size:13px;font-weight:300;}
+    .footer-bottom-links{display:flex;align-items:center;gap:22px;}
+    .footer-bottom-links a{color:#8a8f98;text-decoration:none;font-size:13px;font-weight:300;}
+    .footer-bottom-links a:hover{color:#3b7d3b;}
+    @media(max-width:1200px){.footer-container{grid-template-columns:1fr 1fr;gap:48px;}}
+    @media(max-width:768px){.footer{padding:52px 6% 28px;}.footer-container{grid-template-columns:1fr;gap:36px;}.footer-bottom{flex-direction:column;text-align:center;}.footer-bottom-links{flex-wrap:wrap;justify-content:center;}.footer .logo-text{font-size:26px;}.brand-description{font-size:14px;}}
+    @media(max-width:380px){.footer{padding:44px 5% 24px;}}
+  </style>
+  <link rel="stylesheet" href="inquiry-form.css" />
+  <link rel="stylesheet" href="legal-footer.css" />
+</head>
+<body>
+<!-- ===================== NEW HEADER START ===================== -->
+<header class="ts-header">
+
+    <!-- LOGO -->
+    <div class="ts-logo">
+        <img src="img/clites-logo-white.png" alt="Clites logo">
+    </div>
+
+    <!-- DESKTOP NAVBAR -->
+    <nav class="ts-navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="service.html">Services</a></li>
+
+            <!-- PORTFOLIO MEGA MENU -->
+            <li class="ts-mega-parent">
+                <a href="portfolio.html">Portfolio</a>
+            </li>
+
+            <li><a href="engineering.html">Engineering</a></li>
+
+            <!-- PRICING DROPDOWN -->
+            <li class="ts-pricing-parent">
+                <a href="#contact">Pricing</a>
+                <div class="ts-pricing-menu">
+                    <a href="#contact" class="ts-price-btn">
+                        <div class="ts-price-left">
+                            <div class="ts-picon ts-pgd"><i class="ri-palette-fill"></i></div>
+                            <div class="ts-ptext"><h4>Graphic Design</h4><span>Creative pricing plans</span></div>
+                        </div>
+                        <i class="ri-arrow-right-line ts-parrow"></i>
+                    </a>
+                    <a href="#contact" class="ts-price-btn">
+                        <div class="ts-price-left">
+                            <div class="ts-picon ts-pwd"><i class="ri-code-box-fill"></i></div>
+                            <div class="ts-ptext"><h4>Web Development</h4><span>Website pricing plans</span></div>
+                        </div>
+                        <i class="ri-arrow-right-line ts-parrow"></i>
+                    </a>
+                    <a href="#contact" class="ts-price-btn">
+                        <div class="ts-price-left">
+                            <div class="ts-picon ts-pui"><i class="ri-layout-masonry-fill"></i></div>
+                            <div class="ts-ptext"><h4>UI UX Design</h4><span>Premium UI packages</span></div>
+                        </div>
+                        <i class="ri-arrow-right-line ts-parrow"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HIRE BUTTON (Desktop) -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zyvenza.solutions.in@gmail.com&su=Project%20Inquiry&body=Hi%20Clites%20team%2C" target="_blank" class="ts-hire-btn" data-inquiry-open aria-haspopup="dialog">HIRE US</a>
+
+    <!-- MOBILE HAMBURGER -->
+    <button class="ts-mob-toggle" id="tsMobToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+
+</header>
+
+<!-- MOBILE MENU DRAWER -->
+<div class="ts-mob-drawer" id="tsMobDrawer" aria-hidden="true">
+  <a href="index.html#top" class="ts-mob-link">Home</a>
+  <a href="index.html#about" class="ts-mob-link">About</a>
+  <a href="service.html" class="ts-mob-link">Services</a>
+  <a href="portfolio.html" class="ts-mob-link">Portfolio</a>
+  <a href="engineering.html" class="ts-mob-link">Engineering</a>
+  <a href="#contact" class="ts-mob-link">Pricing</a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zyvenza.solutions.in@gmail.com&su=Project%20Inquiry&body=Hi%20Clites%20team%2C" target="_blank" rel="noopener" class="ts-mob-hire" data-inquiry-open aria-haspopup="dialog">HIRE US</a>
+</div>
+<!-- ===================== NEW HEADER END ===================== -->
+  <main class="services-section" aria-label="Clites services">
+    <div class="services-inner">
+      <header class="section-header">
+        <h1 class="section-title">Services <span>(What we do)</span></h1>
+          <div class="controls" aria-label="Service carousel controls">
+            <button class="control" id="previous" type="button" aria-label="Previous service">←</button>
+            <button class="control" id="next" type="button" aria-label="Next service">→</button>
+          </div>
+      </header>
+
+      <section class="carousel-viewport" aria-label="Our services carousel">
+        <div class="carousel-mask">
+          <div class="service-track" id="service-track">
+            <article class="service-card" aria-label="Branding">
+              <div class="service-copy">
+                <h2 class="service-name">Branding</h2>
+                <p class="service-tagline">Shape a clear identity your audience remembers.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">✦</span></div>
+            </article>
+            <article class="service-card" aria-label="Packaging">
+              <div class="service-copy">
+                <h2 class="service-name">Packaging</h2>
+                <p class="service-tagline">Create packaging that makes products stand out.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">▣</span></div>
+            </article>
+            <article class="service-card" aria-label="Social media">
+              <div class="service-copy">
+                <h2 class="service-name">Social media</h2>
+                <p class="service-tagline">Plan social content that builds a loyal audience.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">◌</span></div>
+            </article>
+            <article class="service-card" aria-label="Campaigns">
+              <div class="service-copy">
+                <h2 class="service-name">Campaigns</h2>
+                <p class="service-tagline">Launch campaigns that turn attention into action.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">↗</span></div>
+            </article>
+            <article class="service-card" aria-label="Web and digital">
+              <div class="service-copy">
+                <h2 class="service-name">Web &amp; digital</h2>
+                <p class="service-tagline">Build digital experiences that feel simple and human.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">⌁</span></div>
+            </article>
+            <article class="service-card" aria-label="Landing page">
+              <div class="service-copy">
+                <h2 class="service-name">Landing page</h2>
+                <p class="service-tagline">Create landing pages designed to turn visits into leads.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">⌑</span></div>
+            </article>
+            <article class="service-card" aria-label="E-commerce">
+              <div class="service-copy">
+                <h2 class="service-name">E-commerce</h2>
+                <p class="service-tagline">Design e-commerce journeys that make buying easy.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">◇</span></div>
+            </article>
+            <article class="service-card" aria-label="Business website">
+              <div class="service-copy">
+                <h2 class="service-name">Business website</h2>
+                <p class="service-tagline">Give your business a trusted and professional presence.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">◱</span></div>
+            </article>
+            <article class="service-card" aria-label="Portfolio website">
+              <div class="service-copy">
+                <h2 class="service-name">Portfolio website</h2>
+                <p class="service-tagline">Present your best work through a portfolio with purpose.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">◎</span></div>
+            </article>
+            <article class="service-card" aria-label="Web development">
+              <div class="service-copy">
+                <h2 class="service-name">Web development</h2>
+                <p class="service-tagline">Develop fast, flexible websites built around your goals.</p>
+              </div>
+              <div class="service-meta"><span class="service-icon" aria-hidden="true">+</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="progress" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <aside class="contact-card" id="contact" aria-label="Contact us">
+        <div class="contact-card-content">
+          <p class="contact-card-label">Have a project in mind?</p>
+          <h2>Let’s create something people remember.</h2>
+          <p class="contact-card-text">Tell us what you are building and we will help turn your idea into a clear, confident experience.</p>
+        </div>
+        <a class="contact-button" href="mailto:zyvenza.solutions.in@gmail.com" data-inquiry-open aria-haspopup="dialog">Start a conversation <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===================== NEW FOOTER START ===================== -->
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column footer-brand">
+            <div class="logo">
+                <img src="img/clites-logo-black.png" alt="Clites logo" class="footer-logo-img" style="height:44px;width:auto;object-fit:contain;margin-bottom:18px;">
+            </div>
+            <p class="brand-description">Websites and digital experiences for growing brands.</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+            <h3 class="footer-title">Quick links</h3>
+            <div class="footer-links">
+                <a href="index.html#top">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="engineering.html">Engineering</a>
+                <a href="#contact">Pricing</a>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="footer-column">
+            <h3 class="footer-title">Services</h3>
+            <div class="footer-links">
+                <a href="#">Brand identity</a>
+                <a href="#">Web development</a>
+                <a href="#">UI/UX design</a>
+                <a href="#">Social media design</a>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-column">
+            <h3 class="footer-title">Contact</h3>
+            <div class="contact-wrapper">
+                <div class="contact-row">
+                    <i class="ri-mail-line"></i>
+                    <a href="mailto:zyvenza.solutions.in@gmail.com">zyvenza.solutions.in@gmail.com</a>
+                </div>
+                <div class="contact-row">
+                    <i class="ri-phone-line"></i>
+                    <a href="tel:+917339598683">+91 7339598683</a>
+                </div>
+                <div class="contact-row">
+                    <i class="ri-whatsapp-line"></i>
+                    <a href="https://wa.me/917339598683" target="_blank" rel="noopener">7339598683</a>
+                </div>
+                <div class="contact-row">
+                    <i class="ri-map-pin-line"></i>
+                    <p>Tamil Nadu, India</p>
+                </div>
+            </div>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zyvenza.solutions.in@gmail.com&su=Project%20Inquiry&body=Hi%20Clites%20team%2C" target="_blank" class="footer-cta" data-inquiry-open aria-haspopup="dialog">Let's work together</a>
+
+        </div>
+    </div>
+
+    <div class="site-legal">
+      <nav class="site-legal__links" aria-label="Legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="site-legal__copyright">&copy; <span data-current-year>2026</span> Clites. All rights reserved.</p>
+      <p class="site-legal__notice">All original content, branding, and materials owned by Clites are protected by applicable intellectual property laws. Unauthorized copying, reproduction, or distribution is prohibited, except as permitted by law or with appropriate permission.</p>
+    </div>
+  </footer>
+  <!-- ===================== NEW FOOTER END ===================== -->
+
+  <script id="shared-mobile-header-js">
+    (() => {
+      const btn = document.getElementById("tsMobToggle");
+      const drawer = document.getElementById("tsMobDrawer");
+      if (!btn || !drawer) return;
+
+      function closeMenu() {
+        drawer.classList.remove("open");
+        btn.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+        drawer.setAttribute("aria-hidden", "true");
+      }
+
+      btn.setAttribute("aria-expanded", "false");
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = drawer.classList.toggle("open");
+        btn.classList.toggle("active", open);
+        btn.setAttribute("aria-expanded", String(open));
+        drawer.setAttribute("aria-hidden", String(!open));
+      });
+
+      drawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!drawer.contains(e.target) && !btn.contains(e.target)) closeMenu();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const track = document.querySelector("#service-track");
+      const mask = document.querySelector(".carousel-mask");
+      const previous = document.querySelector("#previous");
+      const next = document.querySelector("#next");
+      const progressFill = document.querySelector("#progress-fill");
+      const originals = [...track.children];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const SPEED = reduceMotion ? 0 : 42;   /* auto scroll: px per second */
+      const EASE = 7;            /* arrow nudge easing */
+
+      let loopWidth = 0;
+      let offset = 0;
+      let pending = 0;
+      let paused = false;
+      let last = 0;
+
+      const gap = () => parseFloat(getComputedStyle(track).gap) || 12;
+      const stepDistance = () => originals[0].getBoundingClientRect().width + gap();
+
+      function buildLoop() {
+        [...track.children].forEach((node, i) => { if (i >= originals.length) node.remove(); });
+
+        loopWidth = originals.reduce((sum, card) => sum + card.getBoundingClientRect().width, 0)
+          + gap() * originals.length;
+
+        /* clone enough sets so the strip never runs out on wide screens */
+        const needed = Math.max(1, Math.ceil((window.innerWidth * 2) / loopWidth));
+        for (let s = 0; s < needed; s++) {
+          originals.forEach((card) => {
+            const clone = card.cloneNode(true);
+            clone.classList.remove("is-active");
+            clone.setAttribute("aria-hidden", "true");
+            track.appendChild(clone);
+          });
+        }
+      }
+
+      function render() {
+        offset = ((offset % loopWidth) + loopWidth) % loopWidth;
+        track.style.transform = `translate3d(-${offset}px, 0, 0)`;
+        progressFill.style.width = `${(offset / loopWidth) * 100}%`;
+      }
+
+      function frame(time) {
+        const dt = Math.min((time - last) / 1000, 0.05);
+        last = time;
+
+        if (Math.abs(pending) > 0.5) {
+          const move = pending * Math.min(1, dt * EASE);
+          offset += move;
+          pending -= move;
+        } else {
+          pending = 0;
+          if (!paused) offset += SPEED * dt;
+        }
+
+        render();
+        requestAnimationFrame(frame);
+      }
+
+      function nudge(direction) {
+        pending += direction * stepDistance();
+      }
+
+      previous.addEventListener("click", () => nudge(-1));
+      next.addEventListener("click", () => nudge(1));
+
+      /* pause on hover / touch so a card can be read */
+      mask.addEventListener("mouseenter", () => { paused = true; });
+      mask.addEventListener("mouseleave", () => { paused = false; });
+      mask.addEventListener("touchstart", () => { paused = true; }, { passive: true });
+      mask.addEventListener("touchend", () => { paused = false; });
+      document.addEventListener("visibilitychange", () => { paused = document.hidden; });
+
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => {
+          const ratio = loopWidth ? offset / loopWidth : 0;
+          buildLoop();
+          offset = ratio * loopWidth;
+          render();
+        }, 150);
+      });
+
+      buildLoop();
+      render();
+
+      requestAnimationFrame((t) => { last = t; frame(t); });
+    })();
+  </script>
+  <script src="js/site-footer.js"></script>
+  <script type="module" src="js/project-inquiry.js"></script>
+</body>
+</html>
