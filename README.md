@@ -140,7 +140,7 @@ The pages live at their `.html` URLs. If a host supports clean URLs (for example
 
 ### Before publishing
 
-- Confirm the official business email. The site currently publishes `zyvenza.solutions.in@gmail.com`; the legal pages use that address rather than inventing a separate privacy address.
+- The site publishes `contact@clites.in`; the legal pages use the same address rather than inventing a separate privacy address.
 - Add a physical business address if one is required for legal correspondence. The current contact page states that no address is published.
 - Confirm the business-specific payment, cancellation and refund terms in each written project agreement. The refund page deliberately does not invent a percentage, fee or non-refundable deposit.
 - Review the governing-law wording and all policies with a qualified professional for the business’s actual legal structure and jurisdiction.
@@ -164,7 +164,6 @@ Open [`engineering.html`](engineering.html) (or link to it as `/engineering` if 
 - No trademark registration or company registration is claimed.
 
 ### Rebrand follow-ups
-- The published contact address `zyvenza.solutions.in@gmail.com` still contains the former brand. It was intentionally not changed because a replacement mailbox has not been confirmed.
 - No canonical domain, sitemap, robots file, social profile URLs or PWA manifest is configured in this project. None were invented.
 - The internal working directory may still use the old template name `theshawon-clone`; it is not part of the public website. Rename the deployed folder separately if desired.
 - Existing `href="#"` social and service links remain placeholders and need real destinations.

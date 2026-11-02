@@ -8,7 +8,7 @@
 const TABLE = 'project_inquiries';
 const CONFIG_PATH = 'supabase-config.json';
 const VENDOR_PATH = 'vendor/supabase-js.js';
-const CONTACT_EMAIL = 'zyvenza.solutions.in@gmail.com';
+const CONTACT_EMAIL = 'contact@clites.in';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[A-Z]{2,}$/i;
 
 let dialog;
